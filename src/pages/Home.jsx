@@ -1,10 +1,12 @@
 import React from 'react'
+import UsersResults from '../components/users/UsersResults'
 
 const home = () => {
   return (
-	<div>
-		<h1 className='text-6xl'>Home</h1>
-	</div>
+	<>
+	{/* search component goes here */}
+		<UsersResults />
+	</>
   )
 }
 
