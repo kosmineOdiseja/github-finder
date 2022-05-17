@@ -1,10 +1,11 @@
 import React from 'react'
 import UsersResults from '../components/users/UsersResults'
+import UserSearch from '../components/users/UserSearch'
 
 const home = () => {
   return (
 	<>
-	{/* search component goes here */}
+		<UserSearch />
 		<UsersResults />
 	</>
   )
