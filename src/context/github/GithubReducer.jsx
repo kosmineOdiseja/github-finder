@@ -1,6 +1,7 @@
 export const ACTIONS = {
 	GET_USERS: 'GET_USERS',
 	SET_LOADING: 'SET_LOADING',
+	CLEAR_USERS: 'CLEAR_USERS',
 }
 
 const githubReducer = ( state, action ) => {
@@ -19,6 +20,11 @@ const githubReducer = ( state, action ) => {
 			return {
 				...state,
 				loading: true,
+			}
+		case ACTIONS.CLEAR_USERS:
+			return {
+				...state,
+				users: [],
 			}
 		default: 
 		return state;

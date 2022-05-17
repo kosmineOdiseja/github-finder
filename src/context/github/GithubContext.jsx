@@ -24,7 +24,7 @@ export const GithubProvider = ({ children }) => {
 		q: 'text',
 	});
 		
-		const response = await fetch(`${GITHUB_URL}/search/users?${params}`,
+	const response = await fetch(`${GITHUB_URL}/search/users?${params}`,
 		{
 			method: 'GET',
 			headers: {
@@ -38,8 +38,8 @@ export const GithubProvider = ({ children }) => {
 	dispach({
 		type: ACTIONS.GET_USERS, 
 		payload: items, 
-	})
-  }
+		})
+	}
 // set Loading 
   const setLoading = () => dispach({
 	  type: ACTIONS.SET_LOADING, 
