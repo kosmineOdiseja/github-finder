@@ -3,7 +3,6 @@ import LoadingAnimation from '../assets/images/loadingAnimation.gif'
 import UserItem from './UserItem'
 import GithubContext from '../../context/github/GithubContext'
 
-
 const UsersResults = () => {
 
   const { users, loading } = useContext(GithubContext)
