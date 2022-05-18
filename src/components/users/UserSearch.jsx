@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import GithubContext  from '../../context/github/GithubContext';
 import AlertContext from '../../context/alert/AlertContext'
+import ACTIONS from '../../context/alert/AlertReducer';
 
 const UserSearch = () => {
 
@@ -19,7 +20,7 @@ const UserSearch = () => {
 		// that means we we want to get all value of the form at the same time
 		e.preventDefault();
 		if ( text === '' ) {
-			setAlert('Please enter something', 'error');
+			setAlert('Please enter something', ACTIONS.ERROR);
 		} else {
 			searchUsers(text);
 			setText('');

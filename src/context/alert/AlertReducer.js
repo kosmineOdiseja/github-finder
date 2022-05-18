@@ -2,17 +2,18 @@
 export const ACTIONS = {
 	SET_ALERT: 'SET_ALERT',
 	REMOVE_ALERT: 'REMOVE_ALERT',
-	ERROR: 'ERROR',
+	ERROR: 'error',
 }
 
-const alertReducer = ( state, action ) => {
-	switch(action.type) {
-		case ACTIONS.SET_ALERT:
-			return action.payload;
-		case ACTIONS.REMOVE_ALERT:
-			return null;
-		default:
-			return state;
-	}
+const alertReducer = (state, action) => {
+  switch (action.type) {
+    case ACTIONS.SET_ALERT:
+      return action.payload
+    case ACTIONS.REMOVE_ALERT: 
+      return null
+    default:
+      return state
+  }
 }
-export default alertReducer;
+
+export default alertReducer
