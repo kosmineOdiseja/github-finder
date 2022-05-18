@@ -3,6 +3,7 @@ import GithubContext  from '../../context/github/GithubContext';
 
 
 const UserSearch = () => {
+
 	const [text, setText ] = useState('');
 
 	const { users, searchUsers, clearUsers } = useContext(GithubContext);
@@ -22,12 +23,6 @@ const UserSearch = () => {
 			setText('');
 		}
 	}
-
-	// const clearUsers = () => {
-
-	// 	setText('');
-	// 	searchUsers('');
-	// }
 
   return (
   <div className='grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 mb-8 gap-8'>

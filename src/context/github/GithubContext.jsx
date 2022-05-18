@@ -17,11 +17,13 @@ export const GithubProvider = ({ children }) => {
 	const [state, dispach ] =useReducer(GithubReducer, InitialState);
 	
 	// get search results O
-	const searchUsers = async (text) => {
+	// from where this text comes?  and how import this? 
+
+	const searchUsers = async ( text ) => {
 		setLoading();
 
 	const params = new URLSearchParams({
-		q: 'text',
+		q: text,
 	});
 		
 	const response = await fetch(`${GITHUB_URL}/search/users?${params}`,
@@ -40,6 +42,13 @@ export const GithubProvider = ({ children }) => {
 		payload: items, 
 		})
 	}
+	// clear funcntion 
+	const clearUsers = () => {
+
+		dispach({
+			type: ACTIONS.CLEAR_USERS,
+		})
+	}
 // set Loading 
   const setLoading = () => dispach({
 	  type: ACTIONS.SET_LOADING, 
@@ -53,6 +62,7 @@ export const GithubProvider = ({ children }) => {
 			users: state.users, 
 			loading: state.loading,
 			searchUsers, 
+			clearUsers,
 		}}
 	 >
 		{children}
