@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
 const UserItem = ({ user: { login, avatar_url }}) => {
 	// console.log(login, avatar_url, 'this is user from UserItem');
