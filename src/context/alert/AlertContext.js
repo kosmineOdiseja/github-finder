@@ -1,8 +1,6 @@
-import { createContext, useReducer } from 'react';
+import React, { createContext, useReducer } from 'react';
 import AlertReducer  from './AlertReducer';
 import { ACTIONS } from './AlertReducer'
-
-console.log(ACTIONS, 'this is the actions');
 
 const AlertContext = createContext();
 
@@ -29,7 +27,7 @@ export const AlertProvider = ({ children }) => {
 				setAlert,
 			}} 
 		>
-		{children}
+			{children}
 		</AlertContext.Provider>
 	)
 }

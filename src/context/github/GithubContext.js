@@ -11,6 +11,7 @@ export const GithubProvider = ({ children }) => {
 
 	const InitialState =  {
 		users: [],
+		user: {},
 		loading: false, 
 	}
 
@@ -49,6 +50,34 @@ export const GithubProvider = ({ children }) => {
 			type: ACTIONS.CLEAR_USERS,
 		})
 	}
+
+	// get single user 
+
+	const getUser = async (login) => {
+		setLoading();
+
+		const response = await fetch(`${GITHUB_URL}/users/${login}`,
+			{
+				headers: {
+					'Authorization': `token ${GITHUB_TOKEN}`
+				}, 
+			});
+
+		if ( response.status === 404 ) {
+			window.location.href = '/notfound';
+		} else {
+
+			const data = await response.json();
+	
+			dispach({
+				type: ACTIONS.GET_USER,
+				payload: data,
+			})
+		}
+
+	}
+
+
 // set Loading 
   const setLoading = () => dispach({
 	  type: ACTIONS.SET_LOADING, 
@@ -61,8 +90,10 @@ export const GithubProvider = ({ children }) => {
 		value={{
 			users: state.users, 
 			loading: state.loading,
+			user: state.user,
 			searchUsers, 
 			clearUsers,
+			getUser, 
 		}}
 	 >
 		{children}
