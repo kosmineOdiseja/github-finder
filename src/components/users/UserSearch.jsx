@@ -9,7 +9,6 @@ const UserSearch = () => {
 
 	const { users, searchUsers, clearUsers } = useContext(GithubContext);
 	const { setAlert } = useContext(AlertContext);
-	console.log(setAlert, 'this is a setAlert from UserSearch')
 
 	const handleChange = (e) => {
 		setText(e.target.value);

@@ -12,21 +12,24 @@ export const GithubProvider = ({ children }) => {
 	const InitialState =  {
 		users: [],
 		user: {},
+		repos: [], 
 		loading: false, 
 	}
 
 	const [state, dispach ] =useReducer(GithubReducer, InitialState);
 	
-	// get search results O
+	// get search results
 	// from where this text comes?  and how import this? 
 
 	const searchUsers = async ( text ) => {
+		console.log(text, 'text dddddddd 	')
 		setLoading();
 
 	const params = new URLSearchParams({
 		q: text,
 	});
 		
+	console.log(params, 'params dddddddd ')
 	const response = await fetch(`${GITHUB_URL}/search/users?${params}`,
 		{
 			method: 'GET',
@@ -76,24 +79,42 @@ export const GithubProvider = ({ children }) => {
 		}
 
 	}
+	// get user Repos
+	const getUserRepos = async (login) => {
+		setLoading();
 
+		const response = await fetch(`${GITHUB_URL}/users/${login}/repos`, 
+			{ 
+			headers: {
+				Authorization: `token ${GITHUB_TOKEN}`
+			}
+		});
+
+		const data = await response.json();
+
+		dispach({
+			type: ACTIONS.GET_REPOS, 
+			payload: data,
+		})
+
+	}
 
 // set Loading 
   const setLoading = () => dispach({
 	  type: ACTIONS.SET_LOADING, 
 	})
   
-
-
   return (
 	<GithubContext.Provider
 		value={{
 			users: state.users, 
 			loading: state.loading,
 			user: state.user,
+			repos: state.repos, 
 			searchUsers, 
 			clearUsers,
 			getUser, 
+			getUserRepos,
 		}}
 	 >
 		{children}

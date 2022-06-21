@@ -3,7 +3,7 @@ export const ACTIONS = {
 	SET_LOADING: 'SET_LOADING',
 	CLEAR_USERS: 'CLEAR_USERS',
 	GET_USER: 'GET_USER',
-
+	GET_REPOS: 'GET_REPOS',
 }
 
 const githubReducer = ( state, action ) => {
@@ -32,6 +32,12 @@ const githubReducer = ( state, action ) => {
 			return {
 				...state,
 				user: action.payload,
+				loading: false,
+			}
+		case ACTIONS.GET_REPOS:
+			return {
+				...state,
+				repos: action.payload,
 				loading: false,
 			}
 		default: 

@@ -4,14 +4,18 @@ import { Link } from 'react-router-dom'
 import Spinner from '../components/layout/Spinner'
 import GithubContext from '../context/github/GithubContext'
 import { useParams } from 'react-router-dom'
+import ReposList from '../components/repos/RepoList'
 
 const User = ( ) => {
 
-	const { getUser, user, loading } = useContext( GithubContext )
+	const { getUser, user, loading, getUserRepos, repos  } = useContext( GithubContext )
 	const params = useParams()
 
+  console.log(repos, 'this is user repos from user page ')
 	useEffect(() => {
 		getUser( params.login )
+		getUserRepos( params.repos )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	  const {
@@ -36,7 +40,7 @@ const User = ( ) => {
 	}
 
   return (
-    <>
+     <>
       <div className='w-full mx-auto lg:w-10/12'>
         <div className='mb-4'>
           <Link to='/' className='btn btn-ghost'>
@@ -90,9 +94,9 @@ const User = ( ) => {
                 <div className='stat'>
                   <div className='stat-title text-md'>Website</div>
                   <div className='text-lg stat-value'>
-                    <a  target='_blank' rel='noreferrer'>
-
-                    </a>
+                    {/* <a href={websiteUrl} target='_blank' rel='noreferrer'>
+                      {websiteUrl}
+                    </a> */}
                   </div>
                 </div>
               )}
@@ -158,7 +162,7 @@ const User = ( ) => {
           </div>
         </div>
 
-        {/* <RepoList repos={repos} /> */}
+        <ReposList repos={repos} />
       </div>
     </>
   )

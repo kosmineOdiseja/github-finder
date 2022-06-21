@@ -2,8 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const UserItem = ({ user: { login, avatar_url }}) => {
-	// console.log(login, avatar_url, 'this is user from UserItem');
-	// console.log(login, avatar_url, 'this is an user login and avatar_url');
   return (
     <div className='card shadow-md compact side bg-base-100'>
       <div className='flex-row items-center space-x-4 card-body'>
