@@ -1,5 +1,7 @@
 # This app is a part of [Traversy Media course for React](https://www.udemy.com/course/react-front-to-back-2022/)
 
+![Project Gif](https://user-images.githubusercontent.com/51315797/174949753-87adb8f7-34ff-4ff9-bd04-ba766a80046a.gif)
+
 # What I learned from this course? 
 
 ### 1) Components, Props, State
