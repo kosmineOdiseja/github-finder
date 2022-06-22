@@ -1,6 +1,6 @@
 # This app is a part of [Traversy Media course for React](https://www.udemy.com/course/react-front-to-back-2022/)
 
-![Project Gif](https://user-images.githubusercontent.com/51315797/174949753-87adb8f7-34ff-4ff9-bd04-ba766a80046a.gif)
+![GithubFinder](https://user-images.githubusercontent.com/51315797/174952804-45b8af42-ea41-44b8-8b93-970d5d4f755a.gif)
 
 # What I learned from this course? 
 
